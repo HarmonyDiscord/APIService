@@ -6,10 +6,10 @@ export const contentVideoRoute = new Elysia({
 	prefix: '/api/content/video'
 }).get(
 	'/',
-	async ({ params: { id } }) => {
+	async ({ query: { id } }) => {
 		const ytmusic = await getYTMusic();
 
 		return await ytmusic.getVideo(id);
 	},
-	{ parse: 'none', params: t.Object({ id: t.String() }) }
+	{ parse: 'none', query: t.Object({ id: t.String() }) }
 );

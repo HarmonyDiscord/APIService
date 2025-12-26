@@ -8,7 +8,7 @@ export const contentMediaSearchRoute = new Elysia({
 	prefix: '/api/content/media/search'
 }).get(
 	'/',
-	async ({ params: { q } }) => {
+	async ({ query: { q } }) => {
 		const ytmusic = await getYTMusic();
 
 		if (!q) return [];
@@ -27,5 +27,5 @@ export const contentMediaSearchRoute = new Elysia({
 
 		return results.map((result) => parseSearchResult(result));
 	},
-	{ parse: 'none', params: t.Object({ q: t.String() }) }
+	{ parse: 'none', query: t.Object({ q: t.String() }) }
 );

@@ -6,10 +6,10 @@ export const contentAlbumRoute = new Elysia({
 	prefix: '/api/content/album'
 }).get(
 	'/',
-	async ({ params: { id } }) => {
+	async ({ query: { id } }) => {
 		const ytmusic = await getYTMusic();
 
 		return await ytmusic.getAlbum(id);
 	},
-	{ parse: 'none', params: t.Object({ id: t.String() }) }
+	{ parse: 'none', query: t.Object({ id: t.String() }) }
 );
