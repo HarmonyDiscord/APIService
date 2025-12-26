@@ -6,10 +6,10 @@ export const contentMediaSearchSuggestionsRoute = new Elysia({
 	prefix: '/api/content/media/search/suggestions'
 }).get(
 	'/',
-	async ({ params: { q } }) => {
+	async ({ query: { q } }) => {
 		const ytmusic = await getYTMusic();
 
 		return await ytmusic.getSearchSuggestions(q);
 	},
-	{ parse: 'none', params: t.Object({ q: t.String() }) }
+	{ parse: 'none', query: t.Object({ q: t.String() }) }
 );

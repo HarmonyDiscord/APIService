@@ -6,7 +6,7 @@ export const contentHomeRoute = new Elysia({
 	prefix: '/api/content/home'
 }).get(
 	'/',
-	async ({ }) => {
+	async ({}) => {
 		const ytmusic = await getYTMusic();
 
 		return await ytmusic.getHomeSections();

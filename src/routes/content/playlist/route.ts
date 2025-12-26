@@ -6,12 +6,12 @@ export const contentPlaylistRoute = new Elysia({
 	prefix: '/api/content/playlist'
 }).get(
 	'/',
-	async ({ params: { id } }) => {
+	async ({ query: { id } }) => {
 		const ytmusic = await getYTMusic();
 
 		const [playlist, videos] = await Promise.all([ytmusic.getPlaylist(id), ytmusic.getPlaylistVideos(id)]);
 
 		return { ...playlist, videos: videos ?? [] };
 	},
-	{ parse: 'none', params: t.Object({ id: t.String() }) }
+	{ parse: 'none', query: t.Object({ id: t.String() }) }
 );
