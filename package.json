@@ -1,0 +1,31 @@
+{
+  "name": "@harmony/api",
+  "version": "1.0.0",
+  "description": "Harmony API Service",
+  "type": "module",
+  "scripts": {
+    "build": "bun run build:bundle",
+    "build:bundle": "bun build --target bun --format esm --minify --outdir ./dist/ ./src/index.ts",
+    "build:standalone": "bun build --compile --target bun --format esm --minify --outfile ./dist/api ./src/index.ts",
+    "lint": "bun run lint:biome && bun run lint:tsc",
+    "lint:biome": "bun biome check --write .",
+    "lint:tsc": "bun tsc --noEmit",
+    "start": "bun run build && bun ./dist/index.js",
+    "dev": "NODE_ENV=development bun --hot src/index.ts"
+  },
+  "author": "tnfAngel",
+  "dependencies": {
+    "@elysiajs/cors": "^1.4.0",
+    "@elysiajs/swagger": "^1.3.1",
+    "elysia": "^1.4.19",
+    "tslib": "^2.8.1"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.3.10",
+    "@types/bun": "^1.3.5",
+    "typescript": "5.9.3"
+  },
+  "trustedDependencies": [
+    "@biomejs/biome"
+  ]
+}
