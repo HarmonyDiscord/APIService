@@ -3,7 +3,7 @@ import { getYTMusic } from '../../../util/ytmusic';
 
 export const contentVideoRoute = new Elysia({
 	name: 'routes:contentVideoRoute',
-	prefix: '/content/video'
+	prefix: '/api/content/video'
 }).get(
 	'/',
 	async ({ params: { id } }) => {

@@ -3,10 +3,10 @@ import { getYTMusic } from '../../../util/ytmusic';
 
 export const contentHomeRoute = new Elysia({
 	name: 'routes:contentHomeRoute',
-	prefix: '/content/home'
+	prefix: '/api/content/home'
 }).get(
 	'/',
-	async ({}) => {
+	async ({ }) => {
 		const ytmusic = await getYTMusic();
 
 		return await ytmusic.getHomeSections();

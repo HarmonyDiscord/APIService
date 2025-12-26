@@ -3,7 +3,7 @@ import { getYTMusic } from '../../../util/ytmusic';
 
 export const contentAlbumRoute = new Elysia({
 	name: 'routes:contentAlbumRoute',
-	prefix: '/content/album'
+	prefix: '/api/content/album'
 }).get(
 	'/',
 	async ({ params: { id } }) => {

@@ -5,7 +5,7 @@ import { getYTMusic } from '../../../../util/ytmusic';
 
 export const contentMediaSearchRoute = new Elysia({
 	name: 'routes:contentMediaSearchRoute',
-	prefix: '/content/media/search'
+	prefix: '/api/content/media/search'
 }).get(
 	'/',
 	async ({ params: { q } }) => {
