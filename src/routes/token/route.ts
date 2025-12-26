@@ -24,6 +24,7 @@ export const tokenRoute = new Elysia({
 		return { access_token };
 	},
 	{
+		parse: 'json',
 		body: t.Object({
 			code: t.String()
 		})
