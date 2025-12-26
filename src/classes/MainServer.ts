@@ -1,6 +1,17 @@
 import { cors } from '@elysiajs/cors';
 import swagger from '@elysiajs/swagger';
 import { Elysia } from 'elysia';
+import { contentAlbumRoute } from '../routes/content/album/route';
+import { contentArtistRoute } from '../routes/content/artist/route';
+import { contentHomeRoute } from '../routes/content/home/route';
+import { contentMediaLyricsRoute } from '../routes/content/media/lyrics/route';
+import { contentMediaSearchRoute } from '../routes/content/media/search/route';
+import { contentMediaSearchSuggestionsRoute } from '../routes/content/media/search/suggestions/route';
+import { contentPlaylistRoute } from '../routes/content/playlist/route';
+import { contentSearchRoute } from '../routes/content/search/route';
+import { contentSongRoute } from '../routes/content/song/route';
+import { contentVideoRoute } from '../routes/content/video/route';
+import { tokenRoute } from '../routes/token/route';
 
 export class MainServer {
 	app: Elysia;
@@ -12,7 +23,20 @@ export class MainServer {
 	}
 
 	setup() {
-		this.app.use(cors()).head('/health', () => '');
+		this.app
+			.use(cors())
+			.use(contentAlbumRoute)
+			.use(contentArtistRoute)
+			.use(contentHomeRoute)
+			.use(contentMediaLyricsRoute)
+			.use(contentMediaSearchRoute)
+			.use(contentMediaSearchSuggestionsRoute)
+			.use(contentPlaylistRoute)
+			.use(contentSearchRoute)
+			.use(contentSongRoute)
+			.use(contentVideoRoute)
+			.use(tokenRoute)
+			.head('/health', () => '');
 
 		if (process.env['ENABLE_SWAGGER'] === 'true') {
 			console.log('Swagger enabled.');
