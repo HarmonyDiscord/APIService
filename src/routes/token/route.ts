@@ -2,7 +2,7 @@ import { Elysia, t } from 'elysia';
 
 export const tokenRoute = new Elysia({
 	name: 'routes:tokenRoute',
-	prefix: '/token'
+	prefix: '/api/token'
 }).post(
 	'/',
 	async ({ body }) => {
