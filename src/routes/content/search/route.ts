@@ -16,12 +16,11 @@ export const contentSearchRoute = new Elysia({
 		const videoId = getYouTubeVideoId(q);
 
 		if (videoId) {
-			const video = await ytmusic.searchSongs(videoId);
-			const firstVideo = video[0];
+			const video = await ytmusic.getVideo(videoId);
 
-			if (!firstVideo) return [];
+			if (!video) return [];
 
-			return [parseSearchResult(firstVideo)];
+			return [parseSearchResult(video)];
 		}
 
 		const results = await ytmusic.search(q);
