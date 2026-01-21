@@ -2,7 +2,11 @@ import Elysia from 'elysia';
 import parseSearchResult from '../../../util/parseSearchResult';
 import { getYTMusic } from '../../../util/ytmusic';
 
-export const EXCLUDED_ARTISTS = process.env['EXCLUDED_ARTISTS']?.split(', ').filter(Boolean) ?? [];
+export const EXCLUDED_ARTISTS =
+	process.env['EXCLUDED_ARTISTS']
+		?.split(',')
+		.filter(Boolean)
+		.map((x) => x.trim()) ?? [];
 
 export const contentFeedRoute = new Elysia({
 	name: 'routes:contentFeedRoute',
