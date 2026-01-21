@@ -3,10 +3,12 @@ import swagger from '@elysiajs/swagger';
 import { Elysia } from 'elysia';
 import { contentAlbumRoute } from '../routes/content/album/route';
 import { contentArtistRoute } from '../routes/content/artist/route';
+import { contentFeedRoute } from '../routes/content/feed/route';
 import { contentHomeRoute } from '../routes/content/home/route';
 import { contentMediaLyricsRoute } from '../routes/content/media/lyrics/route';
 import { contentMediaSearchRoute } from '../routes/content/media/search/route';
 import { contentMediaSearchSuggestionsRoute } from '../routes/content/media/search/suggestions/route';
+import { contentMediaUpNextRoute } from '../routes/content/media/up-next/route';
 import { contentPlaylistRoute } from '../routes/content/playlist/route';
 import { contentSearchRoute } from '../routes/content/search/route';
 import { contentSongRoute } from '../routes/content/song/route';
@@ -27,10 +29,12 @@ export class MainServer {
 			.use(cors())
 			.use(contentAlbumRoute)
 			.use(contentArtistRoute)
+			.use(contentFeedRoute)
 			.use(contentHomeRoute)
 			.use(contentMediaLyricsRoute)
 			.use(contentMediaSearchRoute)
 			.use(contentMediaSearchSuggestionsRoute)
+			.use(contentMediaUpNextRoute)
 			.use(contentPlaylistRoute)
 			.use(contentSearchRoute)
 			.use(contentSongRoute)
